@@ -1,0 +1,56 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/matt_elhotiby/Sites/micro/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/user.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/location.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/nationality.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/profile.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/religion.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/matt_elhotiby/Sites/micro/app/models/religious_value.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1343924560
+  }
+}
