@@ -22,6 +22,7 @@ gem 'kaminari'
 gem 'simple_form'
 gem 'country_select'
 gem 'acts_as_commentable'
+gem 'geokit'
 
 group :test, :development do
   gem 'capybara'

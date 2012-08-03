@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :profile_attributes
   has_one :profile, dependent: :destroy
+  has_one :match, dependent: :destroy
   accepts_nested_attributes_for :profile
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  before_save :generate_lat_long
+  before_update :generate_lat_long
   validates :first_name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
@@ -23,7 +26,7 @@ class User < ActiveRecord::Base
   HAIRCOLORS = ["black", "brown", "blonde"]
   NATIONALITY = ["White", "Black", "Hispanic"]
   EDUCATION = ["High School", "Some College", "College Graduate", "Masters", "PHD"]
-  RELIGION = ["Christian"]
+  RELIGION = ["Christian", "Hindu", "Muslim"]
 
   def show_interest!(other_user)
     interests.create!(interesting_id: other_user.id)

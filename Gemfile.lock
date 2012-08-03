@@ -92,6 +92,8 @@ GEM
     faker (1.0.1)
       i18n (~> 0.4)
     ffi (1.1.3)
+    geokit (1.6.5)
+      multi_json
     gherkin (2.11.1)
       json (>= 1.4.6)
     growl (1.0.3)
@@ -266,6 +268,7 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   faker
+  geokit
   growl
   guard-rspec
   guard-spork (= 0.3.2)
