@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :interests, dependent: :destroy
   has_many :interested_users, through: :reverse_interests, source: :user
   has_many :interesting_users, through: :interests, source: :interesting
+  has_many :messages, class_name: "Comment", foreign_key: "user_id"
   has_many :reverse_interests, foreign_key: "interesting_id",
                                    class_name:  "Interest",
                                    dependent:   :destroy
@@ -22,7 +23,7 @@ class User < ActiveRecord::Base
   HAIRCOLORS = ["black", "brown", "blonde"]
   NATIONALITY = ["White", "Black", "Hispanic"]
   EDUCATION = ["High School", "Some College", "College Graduate", "Masters", "PHD"]
-  RELIGION = ["Christian", "Hindu", "Muslim"]
+  RELIGION = ["Christian"]
 
   def show_interest!(other_user)
     interests.create!(interesting_id: other_user.id)
