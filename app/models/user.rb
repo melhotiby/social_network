@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     interests.find_by_interesting_id(other_user.id).destroy
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
     def create_remember_token

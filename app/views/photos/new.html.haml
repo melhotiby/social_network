@@ -1,1 +1,16 @@
+%script{:type => "text/javascript"}
+  var create_url = "#{user_photos_path(@user.id)}";
 
+- provide :js do
+  = javascript_include_tag  'jquery.ui.widget', 'jquery.iframe-transport', 'jquery.fileupload', 'file_uploader'
+
+= form_for [@user, @photo], :remote => true do
+  %h1
+    Upload Photos:	#{@user.name}
+  %br
+    %p
+      %br
+        %p#notice= notice
+        Upload Photos:
+        %input#fileupload{:multiple => "", :name => "photo[photo_file]", :type => "file"}
+%ul#thumbs.cf

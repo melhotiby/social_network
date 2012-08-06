@@ -14,7 +14,6 @@ class Profile < ActiveRecord::Base
     now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
-
   protected
 
     def generate_lat_long
