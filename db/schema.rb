@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803133747) do
+ActiveRecord::Schema.define(:version => 20120806163038) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -38,6 +38,28 @@ ActiveRecord::Schema.define(:version => 20120803133747) do
   add_index "interests", ["user_id", "interesting_id"], :name => "index_interests_on_user_id_and_interesting_id", :unique => true
   add_index "interests", ["user_id"], :name => "index_interests_on_user_id"
 
+  create_table "matches", :force => true do |t|
+    t.integer  "miles_from"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "hair_color"
+    t.string   "nationality"
+    t.string   "education"
+    t.string   "religion"
+    t.string   "religious_values"
+    t.text     "about_them"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "photo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.datetime "dob"
     t.string   "gender"
@@ -50,8 +72,12 @@ ActiveRecord::Schema.define(:version => 20120803133747) do
     t.text     "about_me"
     t.string   "country"
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.float    "lat"
+    t.float    "long"
+    t.string   "city"
+    t.string   "state_or_providence"
   end
 
   create_table "users", :force => true do |t|

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Successfully created your user profile!"
-      redirect_to new_users_path
+      redirect_to new_user_photo_path(@user)
     else
       render :new
     end

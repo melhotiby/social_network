@@ -1,10 +1,11 @@
 = f.simple_fields_for :profile do |p|
   = p.input :dob, :as => :date, :label => 'Date of Birth', :start_year => Date.today.year - 90, :end_year => Date.today.year - 12, :discard_day => true, :order => [:month, :year]
   = p.input :gender, :collection => ["Male", "Female"]
-  = p.input :age, :collection => 16..75, :prompt => "Select your age"
   = p.input :hair_color, :collection => User::HAIRCOLORS, :as => :radio_buttons
   = p.input :nationality, :collection => User::NATIONALITY, :as => :select
   = p.input :education, :collection => User::EDUCATION, :as => :select
   = p.input :religion, :collection => User::RELIGION, :as => :select
   = p.input :country, :as => :country
+  = p.input :state_or_providence
+  = p.input :city
   = p.input :about_me, :as => :text

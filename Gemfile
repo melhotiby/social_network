@@ -23,6 +23,9 @@ gem 'simple_form'
 gem 'country_select'
 gem 'acts_as_commentable'
 gem 'geokit'
+gem "carrierwave"
+gem "mini_magick"
+gem 'jbuilder'
 
 group :test, :development do
   gem 'capybara'
