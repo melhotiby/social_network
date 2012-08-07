@@ -7,10 +7,10 @@
 = form_for [@user, @photo], :remote => true do
   %h1
     Upload Photos:	#{@user.name}
-  %br
-    %p
-      %br
-        %p#notice= notice
-        Upload Photos:
-        %input#fileupload{:multiple => "", :name => "photo[photo]", :type => "file"}
+  %p#notice= notice
+  Upload Photos:
+  %input#fileupload{:multiple => "", :name => "photo[photo]", :type => "file"}
+
+= link_to "Next", new_user_match_path(@user)
+
 %ul#thumbs.cf
