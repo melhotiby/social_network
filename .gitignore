@@ -14,3 +14,5 @@
 /log/*.log
 /tmp
 public/uploads
+log/sunspot-solr-development*
+/solr

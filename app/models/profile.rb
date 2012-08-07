@@ -5,13 +5,23 @@ class Profile < ActiveRecord::Base
   validates :state_or_providence, presence: true
   validates :city, presence: true
   validates :dob, presence: true
-
+  paginates_per 2
   before_save :generate_lat_long
   before_update :generate_lat_long
 
   def age
     now = Time.now.utc.to_date
     now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+  searchable do
+    integer :age
+    string :education
+    string :gender
+    string :nationality
+    string :city
+    string :country
+    time :created_at
   end
 
   protected

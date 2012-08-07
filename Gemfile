@@ -26,6 +26,8 @@ gem 'geokit'
 gem "carrierwave"
 gem "mini_magick"
 gem 'jbuilder'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 group :test, :development do
   gem 'capybara'

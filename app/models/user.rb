@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 
   acts_as_commentable
   has_secure_password
+  scope :online, lambda{ where("updated_at > ?", 10.minutes.ago) }
   HAIRCOLORS = ["black", "brown", "blonde"]
   NATIONALITY = ["White", "Black", "Hispanic"]
   EDUCATION = ["High School", "Some College", "College Graduate", "Masters", "PHD"]

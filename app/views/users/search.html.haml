@@ -1,0 +1,24 @@
+= form_tag search_results_path, :method => :get do
+  %p
+    Country
+    = text_field_tag :country, params[:country]
+  %p
+    City
+    = text_field_tag :city, params[:city]
+  %p
+    From what age
+    = text_field_tag :low_age, params[:low_age]
+  %p
+    To what Age
+    = text_field_tag :high_age, params[:high_age]
+  %p
+    Education
+    = text_field_tag :education, params[:education]
+  %p
+    Nationality
+    = text_field_tag :nationality, params[:nationality]
+
+  %p
+    Gender
+    = text_field_tag :gender, params[:gender]
+    = submit_tag "Search", :name => nil
