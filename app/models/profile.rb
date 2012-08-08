@@ -28,7 +28,7 @@ class Profile < ActiveRecord::Base
 
     def generate_lat_long
       require 'geo'
-      lat, lng = Geo::get_coords("#{self.city} #{self.state_or_providence} #{self.country}")
+      lat, lng = Geo::get_coords("#{self.state_or_providence} #{self.city} #{self.country}")
       self.lat = lat
       self.long = lng
     end

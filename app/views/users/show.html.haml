@@ -1,0 +1,20 @@
+- provide :title, @user.name
+%table.profile
+  %tr
+    %td.main
+      %h1
+        = photos(@user)
+        = @user.name
+      =# render 'follow_form' if signed_in?
+    - if @user.messages.any?
+      %table.microposts
+    %td.sidebar.round
+      %strong Name
+      = @user.name
+      %br
+      %strong URL
+      = link_to user_path(@user), @user
+      %strong Interests
+      = @user.interests.count
+      %strong Messages
+      = @user.messages.count

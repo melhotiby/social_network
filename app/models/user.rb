@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
     interests.find_by_interesting_id(other_user.id).destroy
   end
 
+  def send_message!(title, message, other_user)
+    comments.create(title: title, comment: message, :user_id => other_user.id)
+  end
+
+  def sent_messages(other_user)
+    comments.where(:user_id => other_user.id).order("created_at desc")
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
