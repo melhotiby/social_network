@@ -16,3 +16,4 @@
 public/uploads
 log/sunspot-solr-development*
 /solr
+coverage

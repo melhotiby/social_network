@@ -3,9 +3,9 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   validates :gender, presence: true
   validates :state_or_providence, presence: true
-  validates :city, presence: true
+  validates :country, presence: true
   validates :dob, presence: true
-  paginates_per 2
+  paginates_per 20
   before_save :generate_lat_long
   before_update :generate_lat_long
 
@@ -28,7 +28,7 @@ class Profile < ActiveRecord::Base
 
     def generate_lat_long
       require 'geo'
-      lat, lng = Geo::get_coords("#{self.city} #{self.state_or_providence}")
+      lat, lng = Geo::get_coords("#{self.city} #{self.state_or_providence} #{self.country}")
       self.lat = lat
       self.long = lng
     end

@@ -6,6 +6,6 @@
   = p.input :education, :collection => User::EDUCATION, :as => :select
   = p.input :religion, :collection => User::RELIGION, :as => :select
   = p.input :country, :as => :country
-  = p.input :state_or_providence
-  = p.input :city
+  = p.input :state_or_providence, :collection => [], :as => :select, :input_html => { :data => (params[:user][:profile_attributes][:state_or_providence] rescue "") }
+  = p.input :city, :as => :select, :collection => []
   = p.input :about_me, :as => :text
