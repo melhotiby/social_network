@@ -41,13 +41,15 @@ ActiveRecord::Schema.define(:version => 20120806163038) do
   create_table "matches", :force => true do |t|
     t.integer  "miles_from"
     t.string   "gender"
-    t.integer  "age"
+    t.integer  "from_age"
+    t.integer  "to_age"
     t.string   "hair_color"
     t.string   "nationality"
     t.string   "education"
     t.string   "religion"
     t.string   "religious_values"
     t.text     "about_them"
+    t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

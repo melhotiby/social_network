@@ -1,18 +1,20 @@
 !!!
 %html
   %head
+  %head
+  %meta{:charset => "utf-8"}
     %title= "#{full_title(yield(:title))}"
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    /[if lt IE 9]
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "bootstrap.min", "main"
     = yield(:css)
     = yield(:js)
     = csrf_meta_tag
-  %body
+  %body{"cz-shortcut-listen" => "true"}
     .container
       = render 'layouts/header'
+      %section.container-fluid.pad40
+        %section.row-fluid
+          = render 'layouts/side'
       - flash.each do |key, value|
         %div{:class => "flash #{key}"}= value
       %section.round

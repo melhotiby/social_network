@@ -1,0 +1,21 @@
+= simple_form_for [@user, @match] do |f|
+  -if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this profile from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.input :about_them
+    = f.input :from_age, :collection => 16..90, :as => :select
+    = f.input :to_age, :collection => 16..90, :as => :select
+    = f.input :hair_color, :collection => User::HAIRCOLORS, :as => :radio_buttons
+    = f.input :nationality, :collection => User::NATIONALITY
+    = f.input :education, :collection => User::EDUCATION
+    = f.input :religion, :collection => User::RELIGION
+    = f.input :miles_from
+    = f.input :religious_values
+    = f.input :gender
+  .actions
+    = f.submit 'Save'

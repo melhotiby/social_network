@@ -1,0 +1,92 @@
+.span3.sideBar{:style => "height: 668px; "}
+  %br
+    %ul
+      %li{"data-target" => "dashboard"}
+        %figure
+          %i.icon-home
+          Dashboard   
+          %span.badge.badge-warning 2
+      %hr
+        %li{"data-target" => "projects"}
+          %figure
+            %i.icon-book
+            Projects   
+            %span.badge.badge-info 4
+        %li{"data-target" => "tasks"}
+          %figure
+            %i.icon-tasks
+            Tasks   
+            %span.badge.badge-info 3
+        %li{"data-target" => "messages"}
+          %figure
+            %i.icon-envelope
+            Messages   
+            %span.badge.badge-info 3
+        %hr
+          %li{"data-target" => "functions"}
+            %figure
+              %i.icon-heart
+              Functions
+          %li.dropper
+            %figure
+              %i.icon-circle-arrow-down
+              DropDown  ›
+            %ul.subSide
+              %li
+                %i.icon-plus
+                List Item 1
+              %li
+                %i.icon-plus
+                List Item 2
+              %li
+                %i.icon-plus
+                List Item 3
+          %li{"data-target" => "charts"}
+            %figure
+              %i.icon-signal
+              Charts
+          %hr
+            %li{"data-target" => "settings"}
+              %figure
+                %i.icon-wrench
+                Settings
+            %li.active{"data-target" => "profile"}
+              %figure
+                %i.icon-user
+                Profile
+            %hr
+              %li{"data-target" => "help"}
+                %figure
+                  %i.icon-question-sign
+                  Help
+    .sideBottom
+      %button.btn.btn-primary.headblue{"data-target" => "#tasksSideList", "data-toggle" => "collapse"}
+        TaskList
+        %i.icon-white.icon-circle-arrow-down
+      %ul#tasksSideList.collapse{:style => "height: 0px; "}
+        %li{"data-taskid" => "6", "data-taskstate" => "1"}
+          %i.icon-ok
+          6.
+          %a{:href => "#"} Explore Elements
+        %li{"data-taskid" => "5", "data-taskstate" => "0"}
+          %i.icon-remove
+          5.
+          %a{:href => "#"} Add New Project
+        %li{"data-taskid" => "4", "data-taskstate" => "0"}
+          %i.icon-remove
+          4.
+          %a{:href => "#"} Add New Messages
+        %li{"data-taskid" => "3", "data-taskstate" => "1"}
+          %i.icon-ok
+          3.
+          %a{:href => "#"} Custom Functions
+        %li{"data-taskid" => "2", "data-taskstate" => "0"}
+          %i.icon-remove
+          2.
+          = succeed "Custom" do
+            %a{:href => "#"}
+          CSS
+        %li{"data-taskid" => "1", "data-taskstate" => "1"}
+          %i.icon-ok
+          1.
+          %a{:href => "#"} Love this Theme :)

@@ -42,4 +42,3 @@ module SessionsHelper
     session[:return_to] = request.fullpath
   end
 end
-
