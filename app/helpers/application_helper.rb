@@ -9,6 +9,11 @@ module ApplicationHelper
       end
     end
   end
+  
+  def default_photo(user)
+    photo = user.photos.first
+    image_tag(photo.photo.url(:thumb).to_s, :class => "images", :size => "120x120", :data => photo.photo.url.to_s)
+  end
 
   def full_title(page_title)
     base_title = "Matts cool website"
@@ -17,9 +22,5 @@ module ApplicationHelper
     else
       "#{base_title} | #{page_title}"
     end
-  end
-
-  def logo
-    image_tag("logo.png", alt: "Sample App", class: "round")
   end
 end

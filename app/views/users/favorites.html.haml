@@ -1,0 +1,56 @@
+.span9
+  .row-fluid
+    .span12.box
+      .box-header
+        %h3
+          %i.icon-user
+          Favorite Members
+      .box-content
+        .content-inner
+          .marg20-btm
+            All Favorites
+            %span.badge.badge-inverse 16
+            | Pending Favorites
+            %span.badge.badge-important 4
+            | Approved Favorites
+            %span.badge.badge-success 10
+            %form.form-inline.pull-right
+              %input{:placeholder => "Search Favorites", :type => "text"}
+                %input.btn{:type => "submit", :value => "Search"}
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th
+                  %input.check-all{:type => "checkbox", :value => ""}/
+                %th Image
+                %th Username
+                %th Name
+                %th Email
+                %th Favorite Date
+                %th Status
+                %th Action
+            %tbody
+              %tr
+                %td
+                  %input{:type => "checkbox"}/
+                %td
+                  .comment-avatar
+                    %img{:src => "img/avatar.png"}/
+                %td
+                  %p
+                    %a{:href => "#"} John Doe
+                %td
+                  %p Johnathan Doe
+                %td
+                  %p me@johndoe.com
+                %td 2012/08/01 at 12:03 pm
+                %td
+                  %span.label.label-important Pending
+                %td
+                  .btn-group
+                    %a.btn{"data-original-title" => "Approve", :href => "#", :rel => "tooltip"}
+                      %i.icon-ok
+                    %a.btn{"data-original-title" => "Edit", :href => "#", :rel => "tooltip"}
+                      %i.icon-pencil
+                    %a.btn{"data-original-title" => "Delete", :href => "#", :rel => "tooltip"}
+                      %i.icon-trash

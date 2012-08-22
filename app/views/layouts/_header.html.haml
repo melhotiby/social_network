@@ -47,5 +47,7 @@
           %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
             %i.icon-white.icon-wrench
         %li
-          %a{"data-original-title" => "Logout", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-off
+          - if signed_in?
+            %li= link_to "Sign out", signout_path, method: :delete
+          - else
+            %li= link_to "Sign in", signin_path
