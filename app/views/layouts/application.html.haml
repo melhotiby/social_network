@@ -5,19 +5,19 @@
   %meta{:charset => "utf-8"}
     %title= "#{full_title(yield(:title))}"
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application", "bootstrap.min", "main"
+    = javascript_include_tag "application"
     = yield(:css)
     = yield(:js)
     = csrf_meta_tag
-  %body{"cz-shortcut-listen" => "true"}
-    .container
-      = render 'layouts/header'
-      %section.container-fluid.pad40
-        %section.row-fluid
-          = render 'layouts/side'
+  %body
+    = render 'layouts/header'
+    .container-fluid
+      .row-fluid
+        = render 'layouts/side'
+        .span8
+          = yield
       - flash.each do |key, value|
         %div{:class => "flash #{key}"}= value
       %section.round
-        = yield
       = render 'layouts/footer'
       = debug(params) if Rails.env.development?

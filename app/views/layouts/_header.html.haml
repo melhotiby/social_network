@@ -2,21 +2,13 @@
   .navbar-inner
     .container-fluid
       %a.brand.pull-left
-        %i.icon-white.icon-leaf
-        Amai Lite
+        %i.icon-white.icon-comments
+        Whatever Site
       %ul.nav.pull-left
         %li.active
           %a{:href => "#"}
             %i.icon-white.icon-home
             Dashboard
-        %li
-          %a{:href => "#"}
-            %i.icon-white.icon-user
-            Account
-        %li
-          %a{:href => "#"}
-            %i.icon-white.icon-tasks
-            Tasks
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %i.icon-white.icon-star
@@ -37,23 +29,20 @@
               %a{:href => "#"} Messages
             %li
               %a{:href => "#"} Precoded Functions
-      %form.navbar-search.pull-left
-        %input.search-query.span3{:placeholder => "Search", :type => "text"}
-          .icon-search
+
       %ul.nav.pull-right
         %li
           %a{"data-original-title" => "8 Projects Remaining", :href => "#", :rel => "tooltip"}
-            %span.badge.badge-nav 8
+            %i.icon-heart
+            %span.label.label-info 2 Interest
         %li
           %a{"data-original-title" => "2 Tasks are Urgent", :href => "#", :rel => "tooltip"}
-            %span.badge.badge-nav 2 Urgent
+            %i.icon-envelope
+            %span.label.label-important 2 Messages
         %li
           %a{"data-original-title" => "User Page", :href => "#", :rel => "tooltip"}
             %i.icon-white.icon-user
             nanu
-        %li
-          %a{"data-original-title" => "Help", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-question-sign
         %li
           %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
             %i.icon-white.icon-wrench

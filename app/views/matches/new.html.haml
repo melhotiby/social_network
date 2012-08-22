@@ -1,4 +1,6 @@
 = simple_form_for [@user, @match] do |f|
+= simple_form_for([@user, @match], :html => {:class => 'form-horizontal' }) do |f|
+
   -if @match.errors.any?
     #error_explanation
       %h2= "#{pluralize(@match.errors.count, "error")} prohibited this profile from being saved:"
