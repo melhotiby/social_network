@@ -9,7 +9,11 @@ module ApplicationHelper
       end
     end
   end
-  
+
+  def home_page?
+    current_page?(url_for(:controller => 'welcome', :action => 'home'))
+  end
+
   def default_photo(user)
     photo = user.photos.first
     image_tag(photo.photo.url(:thumb).to_s, :class => "images", :size => "120x120", :data => photo.photo.url.to_s)

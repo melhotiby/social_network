@@ -9,9 +9,9 @@
     = yield(:css)
     = yield(:js)
     = csrf_meta_tag
-  %body
+  %body{:style => "#{(home_page? && !signed_in?) ? "padding-top: 0px;" :""}"}
     = render 'layouts/header'
-    .container-fluid
+    %div{:class => "#{(home_page? && !signed_in?) ? "home_page" :"container-fluid"}"}
       .row-fluid
         = render 'layouts/side'
         = yield

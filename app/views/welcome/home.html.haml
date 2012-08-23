@@ -1,3 +1,22 @@
+- unless signed_in?
+  .hero
+    / <div id="hero-overlay"></div>
+    #hero-gallery
+      .container
+        %img{:src => "https://songtrust-uploads.s3.amazonaws.com/v3/images/hero-gallery/sarah.jpg"}
+    .container
+      / /.row
+    / /.container
+  .well
+    - User.online.each do |user|
+      .featured-client
+        .fc-image
+          %img{:height => "130", :src => "https://songtrust-uploads.s3.amazonaws.com/v3/images/featured-writers/kenna.jpg", :width => "130"}
+            .fc-caption= user.name
+        %strong Indie Pop Songwriter
+        %br
+          %span= user.profile.country
+
 .span4
   dasfasdfasdffffffff
   Lorem ipsum dolor sit amet, consectetur ad
