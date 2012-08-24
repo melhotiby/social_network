@@ -1,0 +1,17 @@
+.hero
+  #hero-gallery
+    .container
+      %img{:src => ""}
+  .container
+
+.well
+  %div
+    - User.online.limit(7).each do |user|
+      .featured-client
+        .fc-image
+          %img{:height => "130", :src => "#{user.photos.first.photo.url.to_s}", :width => "130"}
+            .fc-caption= user.name
+        %strong Indie Pop Songwriter
+        %br
+          %span= user.profile.country
+
