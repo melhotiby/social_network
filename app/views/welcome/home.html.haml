@@ -1,33 +1,4 @@
-- unless signed_in?
-  .hero
-    / <div id="hero-overlay"></div>
-    #hero-gallery
-      .container
-        %img{:src => "https://songtrust-uploads.s3.amazonaws.com/v3/images/hero-gallery/sarah.jpg"}
-    .container
-      / /.row
-    / /.container
-  .well
-    - User.online.each do |user|
-      .featured-client
-        .fc-image
-          %img{:height => "130", :src => "https://songtrust-uploads.s3.amazonaws.com/v3/images/featured-writers/kenna.jpg", :width => "130"}
-            .fc-caption= user.name
-        %strong Indie Pop Songwriter
-        %br
-          %span= user.profile.country
-
-.span4
-  dasfasdfasdffffffff
-  Lorem ipsum dolor sit amet, consectetur ad
-  ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad m
-  inim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-.span4
-  dasfasdfasdffffffff
-  Lorem ipsum dolor sit amet, consectetur ad
-  ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad m
-  inim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-  mollit anim id est laborum.
+- if signed_in?
+  = render 'user_home'
+- else
+  = render 'home_page'

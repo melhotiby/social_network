@@ -1,37 +1,42 @@
 - if signed_in?
-  .span3
+  .span3.sidebar
     .row-fluid
       .span6
         = default_photo(current_user)
       .span6
-        %h6 username
+        %h6= current_user.name
         = succeed "|" do
           = link_to "Profile", current_user
         = link_to "Sign out", signout_path, method: :delete
     %br
     %ul
       %li{"data-target" => "dashboard"}
-        %i.icon-home
-        Dashboard
+        %a{:href => "#{root_path}", :rel => "tooltip"}
+          %i.icon-home
+          Dashboard
       %li{"data-target" => "dashboard"}
-        %i.icon-user
-        Online
-        %span.badge.badge-success 3000
+        %a{:href => "#{root_path}", :rel => "tooltip"}
+          %i.icon-user
+          Online
+          %span.badge.badge-success= User.online.count
       %li{"data-target" => "projects"}
-        %i.icon-heart
-        Interests
-        %span.badge.badge-important 4
+        %a{:href => "#{messages_path(current_user)}", :rel => "tooltip"}
+          %i.icon-heart
+          Interests
+          %span.badge.badge-important= current_user.interested_users.count
       %li{"data-target" => "messages"}
-        %i.icon-envelope
-        Messages
-        %span.badge.badge-info 3
+        %a{:href => "#{messages_path(current_user)}", :rel => "tooltip"}
+          %i.icon-envelope
+          Messages
+          %span.badge.badge-info= current_user.messages.count
       %li{"data-target" => "messages"}
         %i.icon-star
         Favorites
         %span.badge.badge-warning 3
       %li{"data-target" => "settings"}
-        %i.icon-wrench
-        Settings
+        %a{:href => "#{user_path(current_user)}", :rel => "tooltip"}
+          %i.icon-wrench
+          Settings
       %li.active{"data-target" => "profile"}
         %i.icon-user
         Profile

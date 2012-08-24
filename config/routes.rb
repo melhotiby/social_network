@@ -7,8 +7,9 @@ Micro::Application.routes.draw do
 
   get '/search' => 'users#search'
   get '/search_results' => 'users#search_results'
-  get '/favorites' => 'users#favorites'
-  
+  get '/favorites/:id' => 'users#favorites', :as => "favorites"
+  get '/messages/:id' => 'users#messages', :as => "messages"
+
   root to: 'welcome#home'
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

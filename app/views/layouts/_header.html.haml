@@ -31,23 +31,22 @@
               %a{:href => "#"} Precoded Functions
 
       %ul.nav.pull-right
-        %li
-          %a{"data-original-title" => "8 Projects Remaining", :href => "#", :rel => "tooltip"}
-            %i.icon-heart
-            %span.label.label-info 2 Interest
-        %li
-          %a{"data-original-title" => "2 Tasks are Urgent", :href => "#", :rel => "tooltip"}
-            %i.icon-envelope
-            %span.label.label-important 2 Messages
-        %li
-          %a{"data-original-title" => "User Page", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-user
-            nanu
-        %li
-          %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-wrench
-        %li
-          - if signed_in?
-            %li= link_to "Sign out", signout_path, method: :delete
-          - else
-            %li= link_to "Sign in", signin_path
+        - if signed_in?
+          %li
+            %a{:href => "#", :rel => "tooltip"}
+              %i.icon-heart
+              %span.label.label-info= "#{current_user.interested_users.count} Interests"
+          %li
+            %a{:href => "#{messages_path(current_user)}", :rel => "tooltip"}
+              %i.icon-envelope
+              %span.label.label-important= "#{current_user.messages.count} Messages"
+          %li
+            %a{"data-original-title" => "User Page", :href => "#", :rel => "tooltip"}
+              %i.icon-white.icon-user
+              nanu
+          %li
+            %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
+              %i.icon-white.icon-wrench
+          %li= link_to "Sign out", signout_path, method: :delete
+        - else
+          %li= link_to "Sign in", signin_path
