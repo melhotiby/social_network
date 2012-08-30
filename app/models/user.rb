@@ -1,15 +1,14 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :profile_attributes
+  attr_accessible :email, :first_name, :first_name, :password, :password_confirmation, :profile_attributes
   has_one :profile, dependent: :destroy
   has_one :match, dependent: :destroy
   accepts_nested_attributes_for :profile
-  before_save { |user| user.email = email.downcase }
-  before_save :create_remember_token
   validates :first_name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
+  validates :password, presence: true
   validates :password_confirmation, presence: true
   has_many :photos
   has_many :interests, dependent: :destroy
@@ -22,6 +21,8 @@ class User < ActiveRecord::Base
 
   acts_as_commentable
   has_secure_password
+  before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
 
   scope :online, lambda{ where("updated_at > ?", 10.minutes.ago) }
 

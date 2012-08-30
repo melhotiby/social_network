@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def default_photo(user)
     photo = user.photos.first
-    image_tag(photo.photo.url(:thumb).to_s, :class => "images", :size => "120x120", :data => photo.photo.url.to_s)
+    image_tag(photo.photo.url(:thumb).to_s, :class => "images", :size => "120x120", :data => photo.photo.url.to_s) if photo
   end
 
   def full_title(page_title)
