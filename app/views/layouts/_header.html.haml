@@ -1,22 +1,14 @@
 %header.navbar.blue.blue2.navbar-fixed-top
   .navbar-inner
     .container-fluid
-      %a.brand.pull-left
-        %i.icon-white.icon-leaf
-        Amai Lite
+      %a#main_logo.brand.pull-left{:href => "/"}
+        %i.icon-white.icon-comments
+        Whatever Site
       %ul.nav.pull-left
         %li.active
           %a{:href => "#"}
             %i.icon-white.icon-home
             Dashboard
-        %li
-          %a{:href => "#"}
-            %i.icon-white.icon-user
-            Account
-        %li
-          %a{:href => "#"}
-            %i.icon-white.icon-tasks
-            Tasks
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %i.icon-white.icon-star
@@ -37,26 +29,24 @@
               %a{:href => "#"} Messages
             %li
               %a{:href => "#"} Precoded Functions
-      %form.navbar-search.pull-left
-        %input.search-query.span3{:placeholder => "Search", :type => "text"}
-          .icon-search
+
       %ul.nav.pull-right
-        %li
-          %a{"data-original-title" => "8 Projects Remaining", :href => "#", :rel => "tooltip"}
-            %span.badge.badge-nav 8
-        %li
-          %a{"data-original-title" => "2 Tasks are Urgent", :href => "#", :rel => "tooltip"}
-            %span.badge.badge-nav 2 Urgent
-        %li
-          %a{"data-original-title" => "User Page", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-user
-            nanu
-        %li
-          %a{"data-original-title" => "Help", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-question-sign
-        %li
-          %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-wrench
-        %li
-          %a{"data-original-title" => "Logout", :href => "#", :rel => "tooltip"}
-            %i.icon-white.icon-off
+        - if signed_in?
+          %li
+            %a{:href => "#", :rel => "tooltip"}
+              %i.icon-heart
+              %span.label.label-info= "#{current_user.interested_users.count} Interests"
+          %li
+            %a{:href => "#{messages_path(current_user)}", :rel => "tooltip"}
+              %i.icon-envelope
+              %span.label.label-important= "#{current_user.messages.count} Messages"
+          %li
+            %a{"data-original-title" => "User Page", :href => "#", :rel => "tooltip"}
+              %i.icon-white.icon-user
+              nanu
+          %li
+            %a{"data-original-title" => "Settings", :href => "#", :rel => "tooltip"}
+              %i.icon-white.icon-wrench
+          %li= link_to "Sign out", signout_path, method: :delete
+        - else
+          %li= link_to "Sign in", signin_path

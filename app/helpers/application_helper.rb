@@ -10,6 +10,15 @@ module ApplicationHelper
     end
   end
 
+  def home_page?
+    current_page?(url_for(:controller => 'welcome', :action => 'home'))
+  end
+
+  def default_photo(user)
+    photo = user.photos.first
+    image_tag(photo.photo.url(:thumb).to_s, :class => "images", :size => "120x120", :data => photo.photo.url.to_s) if photo
+  end
+
   def full_title(page_title)
     base_title = "Matts cool website"
     if page_title.empty?
@@ -17,9 +26,5 @@ module ApplicationHelper
     else
       "#{base_title} | #{page_title}"
     end
-  end
-
-  def logo
-    image_tag("logo.png", alt: "Sample App", class: "round")
   end
 end
